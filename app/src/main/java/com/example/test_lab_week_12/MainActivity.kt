@@ -50,12 +50,8 @@ class MainActivity : AppCompatActivity() {
 
                 launch {
                     movieViewModel.popularMovies.collect { movies ->
-                        val currentYear = Calendar.getInstance().get(Calendar.YEAR).toString()
-                        movieAdapter.addMovies(
-                            movies
-                                .filter { it.releaseDate?.startsWith(currentYear) == true }
-                                .sortedByDescending { it.popularity }
-                        )
+                        movieAdapter.addMovies(movies)
+
                     }
                 }
 
